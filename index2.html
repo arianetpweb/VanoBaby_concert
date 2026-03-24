@@ -5,1349 +5,381 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Vano Baby — 10 ANS DU GANG | 04 Avril 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet"/>
-<style>
-  :root{
-    --gold:#D4AF37;
-    --gold-light:#F5E27A;
-    --black:#080808;
-    --dark:#0E0E0E;
-    --dark2:#161616;
-    --dark3:#1E1E1E;
-    --white:#F5F0E8;
-    --red:#C0392B;
-    --text-muted:#888;
-    --border:rgba(212,175,55,0.2);
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--black);
-    color:var(--white);
-    font-family:'Space Grotesk',sans-serif;
-    overflow-x:hidden;
-  }
-  /* ─── SCROLLBAR ─── */
-  ::-webkit-scrollbar{width:4px;}
-  ::-webkit-scrollbar-track{background:var(--black);}
-  ::-webkit-scrollbar-thumb{background:var(--gold);}
-
-  /* ─── NAV ─── */
-  nav{
-    position:fixed;top:0;left:0;width:100%;z-index:1000;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:1.2rem 4rem;
-    background:linear-gradient(to bottom,rgba(8,8,8,0.97),transparent);
-    backdrop-filter:blur(4px);
-    border-bottom:1px solid rgba(212,175,55,0.08);
-    transition:background .3s;
-  }
-  .nav-logo{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:1.5rem;letter-spacing:.15em;
-    color:var(--gold);
-  }
-  .nav-links{display:flex;gap:2.5rem;list-style:none;}
-  .nav-links a{
-    font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;
-    color:rgba(245,240,232,0.7);text-decoration:none;
-    transition:color .2s;
-  }
-  .nav-links a:hover{color:var(--gold);}
-  .nav-cta{
-    background:var(--gold);color:var(--black);
-    font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-    padding:.55rem 1.4rem;border-radius:2px;text-decoration:none;
-    transition:background .2s,transform .15s;
-  }
-  .nav-cta:hover{background:var(--gold-light);transform:scale(1.03);}
-
-  /* ─── HERO ─── */
-  #hero{
-    min-height:100vh;position:relative;
-    display:flex;align-items:center;justify-content:center;
-    overflow:hidden;
-    background:var(--black);
-  }
-  .hero-bg{
-    position:absolute;inset:0;
-    background:
-      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(212,175,55,0.10) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 80% at 80% 80%, rgba(192,57,43,0.07) 0%, transparent 60%);
-  }
-  .hero-grid{
-    position:absolute;inset:0;
-    background-image:
-      linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px);
-    background-size:60px 60px;
-  }
-  .hero-inner{
-    position:relative;z-index:2;
-    display:grid;grid-template-columns:1fr 1fr;
-    align-items:center;gap:4rem;
-    max-width:1200px;width:90%;margin:0 auto;
-    padding-top:5rem;
-  }
-  .hero-text{}
-  .hero-badge{
-    display:inline-flex;align-items:center;gap:.5rem;
-    background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);
-    padding:.35rem 1rem;border-radius:2px;
-    font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
-    margin-bottom:1.8rem;
-  }
-  .hero-badge::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 1.5s infinite;}
-  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(1.3);}}
-  .hero-name{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:clamp(4.5rem,9vw,8rem);
-    line-height:.92;letter-spacing:.04em;
-    color:var(--white);
-    text-shadow:0 0 80px rgba(212,175,55,0.2);
-  }
-  .hero-name span{color:var(--gold);}
-  .hero-subtitle{
-    font-family:'Playfair Display',serif;
-    font-style:italic;font-size:clamp(1.2rem,2.5vw,1.8rem);
-    color:rgba(245,240,232,0.6);margin:.8rem 0 2rem;
-    letter-spacing:.03em;
-  }
-  .hero-event-info{
-    display:flex;flex-direction:column;gap:.7rem;margin-bottom:2.5rem;
-  }
-  .hero-info-row{
-    display:flex;align-items:center;gap:.8rem;
-    font-size:.9rem;color:rgba(245,240,232,0.8);
-  }
-  .hero-info-row .icon{color:var(--gold);font-size:1rem;min-width:1.2rem;}
-  .hero-info-row strong{color:var(--white);}
-  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
-  .btn-primary{
-    background:var(--gold);color:var(--black);
-    font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;
-    padding:.9rem 2.2rem;border-radius:2px;border:none;cursor:pointer;
-    text-decoration:none;display:inline-block;
-    transition:all .2s;box-shadow:0 0 30px rgba(212,175,55,0.3);
-  }
-  .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,175,55,0.5);}
-  .btn-secondary{
-    background:transparent;color:var(--gold);
-    font-weight:600;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;
-    padding:.9rem 2.2rem;border-radius:2px;border:1px solid var(--gold);cursor:pointer;
-    text-decoration:none;display:inline-block;transition:all .2s;
-  }
-  .btn-secondary:hover{background:rgba(212,175,55,0.08);transform:translateY(-2px);}
-  .hero-image-side{
-    position:relative;display:flex;align-items:flex-end;justify-content:center;
-    height:600px;
-  }
-  .hero-img-frame{
-    position:relative;width:380px;height:560px;
-    border-radius:4px;overflow:hidden;
-  }
-  .hero-img-frame::before{
-    content:'';position:absolute;inset:0;z-index:2;
-    background:linear-gradient(to top, var(--black) 0%, transparent 40%);
-  }
-  .hero-img-frame img{
-    width:100%;height:100%;object-fit:cover;object-position:top center;
-    filter:grayscale(20%) contrast(1.1);
-  }
-  .hero-img-glow{
-    position:absolute;inset:-20px;
-    background:radial-gradient(ellipse at center, rgba(212,175,55,0.15) 0%, transparent 70%);
-    z-index:0;
-  }
-  .hero-img-border{
-    position:absolute;inset:0;z-index:3;
-    border:1px solid rgba(212,175,55,0.25);border-radius:4px;pointer-events:none;
-  }
-  .hero-counter{
-    position:absolute;bottom:-1rem;left:50%;transform:translateX(-50%);
-    width:120%;display:flex;gap:1rem;z-index:4;
-  }
-  .counter-item{
-    flex:1;background:rgba(14,14,14,0.95);border:1px solid rgba(212,175,55,0.2);
-    padding:.8rem;text-align:center;border-radius:3px;
-    backdrop-filter:blur(10px);
-  }
-  .counter-num{
-    font-family:'Bebas Neue',sans-serif;font-size:2.2rem;
-    color:var(--gold);line-height:1;display:block;
-  }
-  .counter-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);}
-  .hero-scroll{
-    position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
-    display:flex;flex-direction:column;align-items:center;gap:.5rem;
-    font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);
-    z-index:10;animation:float 2s ease-in-out infinite;
-  }
-  .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent);}
-  @keyframes float{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-8px);}}
-
-  /* ─── TICKER ─── */
-  .ticker{
-    overflow:hidden;background:var(--gold);color:var(--black);
-    padding:.6rem 0;
-  }
-  .ticker-track{
-    display:flex;animation:tick 25s linear infinite;
-    white-space:nowrap;
-  }
-  .ticker-item{
-    font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.15em;
-    padding:0 2.5rem;flex-shrink:0;
-  }
-  .ticker-dot{color:rgba(0,0,0,0.4);}
-  @keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-
-  /* ─── SECTIONS BASE ─── */
-  section{padding:8rem 0;}
-  .container{max-width:1200px;margin:0 auto;padding:0 4rem;}
-  .section-label{
-    font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);
-    margin-bottom:1rem;display:flex;align-items:center;gap:.8rem;
-  }
-  .section-label::before{content:'';display:block;width:30px;height:1px;background:var(--gold);}
-  h2.section-title{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:clamp(2.5rem,5vw,4.5rem);letter-spacing:.05em;
-    color:var(--white);line-height:1;margin-bottom:1.5rem;
-  }
-  h2.section-title span{color:var(--gold);}
-
-  /* ─── HYPE SECTION ─── */
-  #hype{background:var(--dark);position:relative;overflow:hidden;}
-  #hype::before{
-    content:'';position:absolute;inset:0;
-    background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(212,175,55,0.07),transparent);
-  }
-  .hype-intro{
-    text-align:center;max-width:700px;margin:0 auto 5rem;
-  }
-  .hype-intro p{
-    font-size:1.15rem;line-height:1.8;color:rgba(245,240,232,0.75);
-    font-family:'Playfair Display',serif;font-style:italic;
-  }
-  .hype-intro p strong{color:var(--gold);font-style:normal;}
-  .hype-numbers{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-    background:rgba(212,175,55,0.12);border:1px solid rgba(212,175,55,0.12);
-    margin-bottom:5rem;
-  }
-  .hype-stat{
-    background:var(--dark);padding:2.5rem;text-align:center;
-    transition:background .2s;
-  }
-  .hype-stat:hover{background:rgba(212,175,55,0.05);}
-  .hype-stat-num{
-    font-family:'Bebas Neue',sans-serif;font-size:3.5rem;
-    color:var(--gold);line-height:1;display:block;margin-bottom:.3rem;
-  }
-  .hype-stat-label{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);}
-  .hype-tracks-title{
-    text-align:center;
-    font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.2em;
-    color:var(--text-muted);margin-bottom:2rem;
-    text-transform:uppercase;
-  }
-  .hype-tracks{
-    display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;
-    max-width:900px;margin:0 auto 5rem;
-  }
-  .hype-track{
-    background:var(--dark2);border:1px solid rgba(212,175,55,0.15);
-    padding:.5rem 1.2rem;border-radius:20px;
-    font-size:.85rem;color:rgba(245,240,232,0.7);
-    transition:all .2s;cursor:default;
-  }
-  .hype-track:hover{background:rgba(212,175,55,0.1);color:var(--gold);border-color:var(--gold);}
-  .hype-quote{
-    max-width:800px;margin:0 auto;text-align:center;
-    padding:3rem;background:rgba(212,175,55,0.04);
-    border:1px solid rgba(212,175,55,0.2);border-radius:3px;
-    position:relative;
-  }
-  .hype-quote::before{
-    content:'"';position:absolute;top:-1.5rem;left:2rem;
-    font-family:'Playfair Display',serif;font-size:8rem;
-    color:var(--gold);opacity:.15;line-height:1;
-  }
-  .hype-quote p{
-    font-family:'Playfair Display',serif;font-style:italic;
-    font-size:1.3rem;line-height:1.7;color:rgba(245,240,232,0.85);
-  }
-  .hype-quote .quote-attr{
-    display:block;margin-top:1rem;
-    font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);
-  }
-  .hype-visual-row{
-    display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:4rem;
-  }
-  .hype-card{
-    background:var(--dark2);border:1px solid rgba(212,175,55,0.12);
-    padding:2rem;border-radius:3px;
-    transition:transform .2s,border-color .2s;
-  }
-  .hype-card:hover{transform:translateY(-4px);border-color:rgba(212,175,55,0.35);}
-  .hype-card-icon{font-size:2rem;margin-bottom:1rem;}
-  .hype-card h4{
-    font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.1em;
-    color:var(--gold);margin-bottom:.6rem;
-  }
-  .hype-card p{font-size:.88rem;line-height:1.65;color:rgba(245,240,232,0.65);}
-
-  /* ─── ARTISTE ─── */
-  #artiste{background:var(--black);}
-  .artiste-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;
-  }
-  .artiste-img-wrap{position:relative;}
-  .artiste-img-wrap img{
-    width:100%;border-radius:3px;
-    filter:grayscale(15%) contrast(1.05);
-    object-fit:cover;height:500px;
-  }
-  .artiste-img-overlay{
-    position:absolute;inset:0;
-    background:linear-gradient(135deg,rgba(212,175,55,0.08),transparent 50%);
-    border-radius:3px;
-  }
-  .artiste-awards{
-    position:absolute;top:-1rem;right:-1rem;
-    background:var(--gold);color:var(--black);
-    padding:1rem 1.2rem;text-align:center;border-radius:3px;
-    min-width:100px;
-  }
-  .artiste-awards-num{
-    font-family:'Bebas Neue',sans-serif;font-size:2.5rem;line-height:1;display:block;
-  }
-  .artiste-awards-text{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;}
-  .artiste-content{}
-  .artiste-content p{
-    font-size:1rem;line-height:1.85;color:rgba(245,240,232,0.72);
-    margin-bottom:1.2rem;
-  }
-  .artiste-content p strong{color:var(--white);}
-  .artiste-milestones{
-    margin-top:2.5rem;display:flex;flex-direction:column;gap:0;
-    border-left:1px solid rgba(212,175,55,0.2);
-  }
-  .milestone{
-    padding:.8rem 0 .8rem 1.5rem;position:relative;
-    display:flex;align-items:flex-start;gap:1.2rem;
-  }
-  .milestone::before{
-    content:'';position:absolute;left:-5px;top:1.1rem;
-    width:9px;height:9px;border-radius:50%;
-    background:var(--dark);border:2px solid var(--gold);
-  }
-  .milestone-year{
-    font-family:'Bebas Neue',sans-serif;font-size:1rem;
-    color:var(--gold);letter-spacing:.1em;white-space:nowrap;min-width:3.5rem;
-    margin-top:.05rem;
-  }
-  .milestone-text{font-size:.85rem;color:rgba(245,240,232,0.65);line-height:1.5;}
-
-  /* ─── BILLETTERIE ─── */
-  #billetterie{background:var(--dark);position:relative;overflow:hidden;}
-  #billetterie::before{
-    content:'10';
-    position:absolute;right:-3rem;top:50%;transform:translateY(-50%);
-    font-family:'Bebas Neue',sans-serif;font-size:30rem;line-height:1;
-    color:rgba(212,175,55,0.03);pointer-events:none;
-    user-select:none;
-  }
-  .tickets-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;
-    margin-bottom:3rem;
-  }
-  .ticket-card{
-    background:var(--dark2);border:1px solid rgba(212,175,55,0.15);
-    border-radius:4px;overflow:hidden;
-    transition:transform .2s,box-shadow .2s,border-color .2s;
-    cursor:pointer;
-  }
-  .ticket-card:hover,.ticket-card.selected{
-    transform:translateY(-4px);
-    box-shadow:0 8px 40px rgba(212,175,55,0.2);
-    border-color:var(--gold);
-  }
-  .ticket-card.selected .ticket-header{background:var(--gold);color:var(--black);}
-  .ticket-header{
-    background:rgba(212,175,55,0.08);padding:1.2rem 1.5rem;
-    border-bottom:1px solid rgba(212,175,55,0.1);
-    transition:background .2s,color .2s;
-  }
-  .ticket-category{
-    font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.12em;
-    display:block;
-  }
-  .ticket-price{
-    font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);
-    display:block;line-height:1;margin-top:.3rem;
-  }
-  .ticket-card.selected .ticket-price{color:var(--black);}
-  .ticket-price-sub{font-size:.7rem;letter-spacing:.08em;color:var(--text-muted);}
-  .ticket-card.selected .ticket-price-sub{color:rgba(0,0,0,0.6);}
-  .ticket-body{padding:1.5rem;}
-  .ticket-perks{list-style:none;margin-bottom:1.2rem;}
-  .ticket-perks li{
-    font-size:.8rem;color:rgba(245,240,232,0.6);padding:.25rem 0;
-    display:flex;align-items:center;gap:.5rem;
-  }
-  .ticket-perks li::before{content:'✓';color:var(--gold);font-size:.75rem;}
-  .gauge-wrap{margin-top:1rem;}
-  .gauge-label{display:flex;justify-content:space-between;font-size:.68rem;color:var(--text-muted);margin-bottom:.4rem;}
-  .gauge-bar{height:4px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden;}
-  .gauge-fill{
-    height:100%;border-radius:2px;
-    background:linear-gradient(to right,var(--gold),var(--gold-light));
-    transition:width .6s ease;
-  }
-  .gauge-fill.low{background:linear-gradient(to right,#e74c3c,#c0392b);}
-  .qty-row{
-    display:flex;align-items:center;gap:.8rem;margin-top:1rem;
-  }
-  .qty-btn{
-    width:30px;height:30px;border-radius:50%;
-    background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);
-    color:var(--gold);font-size:1rem;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;
-    transition:all .15s;user-select:none;
-  }
-  .qty-btn:hover{background:var(--gold);color:var(--black);}
-  .qty-num{
-    font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--white);
-    min-width:1.5rem;text-align:center;
-  }
-  .qty-label{font-size:.7rem;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;}
-  /* Order Summary */
-  .order-summary{
-    background:var(--dark3);border:1px solid rgba(212,175,55,0.25);
-    border-radius:4px;padding:2rem 2.5rem;
-    max-width:600px;margin:0 auto;
-    text-align:center;
-  }
-  .order-summary-title{
-    font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.2em;
-    color:var(--text-muted);margin-bottom:1.5rem;
-    text-transform:uppercase;
-  }
-  .order-lines{margin-bottom:1.5rem;display:flex;flex-direction:column;gap:.5rem;}
-  .order-line{
-    display:flex;justify-content:space-between;align-items:center;
-    font-size:.9rem;color:rgba(245,240,232,0.65);padding:.5rem 0;
-    border-bottom:1px solid rgba(255,255,255,0.05);
-  }
-  .order-total-row{
-    display:flex;justify-content:space-between;align-items:center;
-    padding-top:1rem;
-  }
-  .order-total-label{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);}
-  .order-total-amount{
-    font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--gold);
-  }
-  #reserve-btn{
-    width:100%;margin-top:1.5rem;
-    background:var(--gold);color:var(--black);
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;
-    padding:1.1rem;border:none;border-radius:3px;cursor:pointer;
-    transition:all .2s;box-shadow:0 0 30px rgba(212,175,55,0.25);
-  }
-  #reserve-btn:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 40px rgba(212,175,55,0.45);}
-  #reserve-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;}
-  #reserve-btn-text{transition:opacity .15s;}
-  .empty-hint{
-    font-size:.78rem;color:var(--text-muted);margin-top:.5rem;
-    font-style:italic;
-  }
-  /* ─── ACCES ─── */
-  #acces{background:var(--black);}
-  .acces-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-  .acces-infos{display:flex;flex-direction:column;gap:2rem;}
-  .info-block{
-    background:var(--dark2);border:1px solid rgba(212,175,55,0.1);
-    padding:1.8rem;border-radius:3px;
-    transition:border-color .2s;
-  }
-  .info-block:hover{border-color:rgba(212,175,55,0.3);}
-  .info-block-title{
-    font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.15em;
-    color:var(--gold);margin-bottom:.8rem;
-    display:flex;align-items:center;gap:.7rem;
-  }
-  .info-block-title .icon{font-size:1rem;}
-  .info-block p,.info-block li{font-size:.88rem;color:rgba(245,240,232,0.65);line-height:1.6;}
-  .info-block ul{list-style:none;display:flex;flex-direction:column;gap:.3rem;}
-  .info-block li::before{content:'→ ';color:var(--gold);}
-  .acces-map{
-    background:var(--dark2);border:1px solid rgba(212,175,55,0.12);
-    border-radius:3px;overflow:hidden;height:420px;
-    display:flex;align-items:center;justify-content:center;
-    flex-direction:column;gap:1rem;
-    font-size:.85rem;color:var(--text-muted);
-    position:relative;
-  }
-  .acces-map-content{text-align:center;}
-  .acces-map-icon{font-size:3rem;margin-bottom:.5rem;opacity:.4;}
-  .acces-map a{
-    display:inline-block;margin-top:1rem;
-    background:var(--gold);color:var(--black);
-    font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-    padding:.6rem 1.4rem;border-radius:2px;text-decoration:none;
-    transition:background .2s;
-  }
-  .acces-map a:hover{background:var(--gold-light);}
-
-  /* ─── FAQ ─── */
-  #faq{background:var(--dark);}
-  .faq-wrap{max-width:760px;margin:0 auto;}
-  .faq-item{
-    border-bottom:1px solid rgba(212,175,55,0.12);
-  }
-  .faq-question{
-    width:100%;background:none;border:none;
-    padding:1.5rem 0;
-    display:flex;justify-content:space-between;align-items:center;
-    color:var(--white);font-family:'Space Grotesk',sans-serif;
-    font-size:1rem;font-weight:500;cursor:pointer;
-    text-align:left;gap:1rem;
-    transition:color .2s;
-  }
-  .faq-question:hover{color:var(--gold);}
-  .faq-icon{
-    color:var(--gold);font-size:1.2rem;flex-shrink:0;
-    transition:transform .3s;font-weight:300;
-  }
-  .faq-item.open .faq-icon{transform:rotate(45deg);}
-  .faq-answer{
-    max-height:0;overflow:hidden;
-    transition:max-height .4s ease;
-  }
-  .faq-answer-inner{
-    padding:.2rem 0 1.5rem;
-    font-size:.9rem;line-height:1.7;color:rgba(245,240,232,0.6);
-  }
-  .faq-answer-inner strong{color:var(--gold);}
-
-  /* ─── FOOTER ─── */
-  footer{
-    background:var(--dark2);border-top:1px solid rgba(212,175,55,0.1);
-    padding:3rem 0;text-align:center;
-  }
-  .footer-logo{
-    font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.15em;color:var(--gold);
-    margin-bottom:.5rem;
-  }
-  .footer-sub{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);}
-  .footer-line{width:60px;height:1px;background:var(--gold);margin:1.5rem auto;}
-  .footer-copy{font-size:.75rem;color:var(--text-muted);}
-  .footer-socials{
-    display:flex;justify-content:center;gap:1.5rem;margin:1rem 0;
-  }
-  .footer-socials a{
-    color:var(--text-muted);text-decoration:none;font-size:.8rem;
-    letter-spacing:.1em;text-transform:uppercase;transition:color .2s;
-  }
-  .footer-socials a:hover{color:var(--gold);}
-
-  /* ─── ANIMATIONS ─── */
-  .fade-up{
-    opacity:0;transform:translateY(30px);
-    transition:opacity .7s ease,transform .7s ease;
-  }
-  .fade-up.visible{opacity:1;transform:translateY(0);}
-
-  /* ─── RESPONSIVE ─── */
-  @media(max-width:900px){
-    nav{padding:1rem 2rem;}
-    .nav-links{display:none;}
-    .hero-inner{grid-template-columns:1fr;text-align:center;gap:3rem;}
-    .hero-image-side{height:400px;}
-    .hero-img-frame{width:280px;height:400px;}
-    .hero-counter{width:100%;}
-    .counter-num{font-size:1.6rem;}
-    .hype-numbers{grid-template-columns:repeat(2,1fr);}
-    .hype-visual-row{grid-template-columns:1fr;}
-    .artiste-grid{grid-template-columns:1fr;gap:3rem;}
-    .tickets-grid{grid-template-columns:1fr 1fr;}
-    .acces-grid{grid-template-columns:1fr;}
-    section{padding:5rem 0;}
-    .container{padding:0 1.5rem;}
-  }
-  @media(max-width:600px){
-    .tickets-grid{grid-template-columns:1fr;}
-    .hero-btns{justify-content:center;}
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">VANO BABY</div>
-  <ul class="nav-links">
+  <a href="#hero" style="display:inline-flex;align-items:center;text-decoration:none;">
+    <img src="/asset/images/logo.png" alt="10 Ans du Gang — Vano Baby" style="height:48px;width:auto;object-fit:contain;filter:drop-shadow(0 0 8px rgba(255,0,0,0.35));"/>
+  </a>
+  <ul class="nm">
     <li><a href="#hype">La Hype</a></li>
     <li><a href="#artiste">L'Artiste</a></li>
     <li><a href="#billetterie">Billets</a></li>
-    <li><a href="#acces">Accès</a></li>
+    <li><a href="#acces">Acc&egrave;s</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
-  <a href="#billetterie" class="nav-cta">Réserver</a>
+  <a href="#billetterie" class="nc"><i class="fa-solid fa-ticket"></i>&nbsp;R&eacute;server</a>
 </nav>
 
-<!-- ══════════════════════════════════════
-     HERO
-══════════════════════════════════════ -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-inner">
-    <!-- Text -->
-    <div class="hero-text">
-      <div class="hero-badge">
-        <span>En direct de Cotonou</span>
+  <div class="hsplit"></div>
+  <!-- 👉 REMPLACE "ton-hibou.png" par le nom de ton fichier image hibou -->
+  <img class="hero-owl" src="/asset/images/hibou.png" alt=""/>
+  <div class="hdnum">10</div>
+  <div class="hi">
+    <div>
+      <div class="heb"><div class="hed"></div><span class="het">Concert live &middot; Cotonou &middot; 04.04.2026</span></div>
+      <h1 class="ht">VANO<br><span class="htr">BABY</span></h1>
+      <p class="htg">10 Ans du Gang &mdash; Le concert de la d&eacute;cennie.</p>
+      <div class="hm">
+        <div class="hmr"><i class="fa-regular fa-calendar"></i><span><strong>04 Avril 2026</strong> &mdash; &agrave; partir de 16h00</span></div>
+        <div class="hmr"><i class="fa-solid fa-location-dot"></i><span><strong>Majestic de Wologu&egrave;d&egrave;</strong> &mdash; Cotonou, B&eacute;nin</span></div>
+        <div class="hmr"><i class="fa-solid fa-tag"></i><span>&Agrave; partir de <strong>5 000 FCFA</strong></span></div>
       </div>
-      <h1 class="hero-name">
-        VANO<br><span>BABY</span>
-      </h1>
-      <p class="hero-subtitle">10 ans du Gang — Concert Live</p>
-
-      <div class="hero-event-info">
-        <div class="hero-info-row">
-          <span class="icon">📅</span>
-          <span><strong>04 Avril 2026</strong> · à partir de 16h</span>
-        </div>
-        <div class="hero-info-row">
-          <span class="icon">📍</span>
-          <span><strong>Majestic de Wologuèdè</strong> · Cotonou, Bénin</span>
-        </div>
-        <div class="hero-info-row">
-          <span class="icon">🎟️</span>
-          <span>À partir de <strong>5 000 FCFA</strong></span>
-        </div>
-      </div>
-
-      <div class="hero-btns">
-        <a href="#billetterie" class="btn-primary">🎟️ Prendre mes tickets</a>
-        <a href="#artiste" class="btn-secondary">Découvrir l'artiste</a>
+      <div class="ha">
+        <a href="#billetterie" class="br"><i class="fa-solid fa-ticket"></i>Prendre mes tickets</a>
+        <a href="#artiste" class="bo"><i class="fa-solid fa-circle-info"></i>D&eacute;couvrir l'artiste</a>
       </div>
     </div>
-
-    <!-- Image -->
-    <div class="hero-image-side">
-      <div class="hero-img-glow"></div>
-      <div class="hero-img-frame">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Vano_Baby_%C3%A0_la_f%C3%AAte_de_la_musique_2021_au_B%C3%A9nin_21.jpg/800px-Vano_Baby_%C3%A0_la_f%C3%AAte_de_la_musique_2021_au_B%C3%A9nin_21.jpg"
-          alt="Vano Baby — Artiste béninois"
-          onerror="this.onerror=null;this.parentElement.innerHTML='<div style=\'background:linear-gradient(135deg,#1a1a1a,#0e0e0e);width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem\'><div style=\'font-family:Bebas Neue,sans-serif;font-size:6rem;color:rgba(212,175,55,0.3);line-height:1\'>VB</div><div style=\'font-size:.7rem;letter-spacing:.2em;color:rgba(212,175,55,0.4);text-transform:uppercase\'>Azéto Gbèdé</div></div>'"
-        />
-        <div class="hero-img-border"></div>
+    <div class="hv">
+      <div class="hig"></div>
+      <div class="hic">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Vano_Baby_%C3%A0_la_f%C3%AAte_de_la_musique_2021_au_B%C3%A9nin_21.jpg/800px-Vano_Baby_%C3%A0_la_f%C3%AAte_de_la_musique_2021_au_B%C3%A9nin_21.jpg" alt="Vano Baby" onerror="this.style.display='none';this.parentElement.style.background='#191919'"/>
       </div>
-
-      <!-- Countdown -->
-      <div class="hero-counter" id="countdown">
-        <div class="counter-item">
-          <span class="counter-num" id="cnt-j">--</span>
-          <span class="counter-label">Jours</span>
-        </div>
-        <div class="counter-item">
-          <span class="counter-num" id="cnt-h">--</span>
-          <span class="counter-label">Heures</span>
-        </div>
-        <div class="counter-item">
-          <span class="counter-num" id="cnt-m">--</span>
-          <span class="counter-label">Mins</span>
-        </div>
-        <div class="counter-item">
-          <span class="counter-num" id="cnt-s">--</span>
-          <span class="counter-label">Secs</span>
-        </div>
+      <div class="hcd">
+        <div class="cb"><span class="cn" id="cj">--</span><span class="cl">Jours</span></div>
+        <div class="cb"><span class="cn" id="ch">--</span><span class="cl">Heures</span></div>
+        <div class="cb"><span class="cn" id="cm">--</span><span class="cl">Mins</span></div>
+        <div class="cb"><span class="cn" id="cs">--</span><span class="cl">Secs</span></div>
       </div>
     </div>
   </div>
-
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
-  </div>
+  <div class="hsc"><i class="fa-solid fa-arrow-down"></i><span>D&eacute;filer</span></div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track" id="ticker">
-    <span class="ticker-item">04 AVRIL 2026 <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">MAJESTIC DE WOLOGUÈDÈ <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">10 ANS DU GANG <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">VANO BABY <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">AZÉTO GBÈDÉ <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">À PARTIR DE 16H <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">COTONOU, BÉNIN <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">SOIS LÀ LE 4 AVRIL <span class="ticker-dot">◆</span></span>
-    <!-- Duplicate for seamless loop -->
-    <span class="ticker-item">04 AVRIL 2026 <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">MAJESTIC DE WOLOGUÈDÈ <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">10 ANS DU GANG <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">VANO BABY <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">AZÉTO GBÈDÉ <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">À PARTIR DE 16H <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">COTONOU, BÉNIN <span class="ticker-dot">◆</span></span>
-    <span class="ticker-item">SOIS LÀ LE 4 AVRIL <span class="ticker-dot">◆</span></span>
-  </div>
-</div>
+<div class="tw"><div class="tt">
+  <span class="ti">04 AVRIL 2026</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">MAJESTIC DE WOLOGU&Egrave;D&Egrave;</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">10 ANS DU GANG</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">VANO BABY</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">AZ&Eacute;TO GB&Egrave;D&Egrave;</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">&Agrave; PARTIR DE 16H</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">COTONOU CAPITALE</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">SOIS L&Agrave; LE 04 AVRIL</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">04 AVRIL 2026</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">MAJESTIC DE WOLOGU&Egrave;D&Egrave;</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">10 ANS DU GANG</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">VANO BABY</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">AZ&Eacute;TO GB&Egrave;D&Egrave;</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">&Agrave; PARTIR DE 16H</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">COTONOU CAPITALE</span><span class="ti"><span class="ts">&diams;</span></span>
+  <span class="ti">SOIS L&Agrave; LE 04 AVRIL</span><span class="ti"><span class="ts">&diams;</span></span>
+</div></div>
 
-<!-- ══════════════════════════════════════
-     HYPE
-══════════════════════════════════════ -->
 <section id="hype">
   <div class="container">
-    <div class="section-label fade-up">La Hype</div>
-    <h2 class="section-title fade-up">10 ANS QU'ON<br><span>ATTENDAIT ÇA.</span></h2>
-
-    <div class="hype-intro fade-up">
-      <p>
-        En une décennie, <strong>Vano Baby</strong> a transformé la rue en scène, la provocation en poésie,
-        et un micro en trône. <strong>Meilleur artiste du Bénin 4 années consécutives.</strong>
-        Ce soir du 04 Avril, ce n'est pas un concert. C'est une <strong>déclaration d'empire.</strong>
-      </p>
+    <div class="sl rv">La Hype</div>
+    <h2 class="st rv d1">10 ANS QU'ON<br><em>ATTENDAIT &Ccedil;A.</em></h2>
+    <div class="hpi rv d2">
+      <p class="hpl">Ce n'est pas un concert.<br><em>C'est un verdict.</em></p>
+      <p>Il y a 10 ans, un gamin de Sainte-Rita prenait un micro et d&eacute;cidait que Cotonou allait l'entendre. Aujourd'hui, <strong>798 000 personnes</strong> le suivent. <strong>4 troph&eacute;es B&eacute;nin Top 10 cons&eacute;cutifs.</strong> Des millions de streams. Des salles combles. Des rues qui chantent ses textes &agrave; 3h du matin. <strong>Vano Baby n'a pas construit une carri&egrave;re. Il a construit un empire.</strong> Et le 04 Avril, il vient r&eacute;clamer sa couronne.</p>
     </div>
-
-    <div class="hype-numbers fade-up">
-      <div class="hype-stat">
-        <span class="hype-stat-num">10</span>
-        <span class="hype-stat-label">Années de règne</span>
+    <div class="hps rv">
+      <div class="hpsi"><span class="hn">10</span><span class="hll">Ann&eacute;es de r&egrave;gne</span></div>
+      <div class="hpsi"><span class="hn">&times;4</span><span class="hll">Artiste de l'ann&eacute;e B&eacute;nin Top 10</span></div>
+      <div class="hpsi"><span class="hn">798K</span><span class="hll">Fans sur Facebook</span></div>
+      <div class="hpsi"><span class="hn">1 NUIT</span><span class="hll">Pour marquer l'histoire</span></div>
+    </div>
+    <!-- ── CAROUSEL DISCOGRAPHIE ── -->
+    <p class="hct rv">&mdash; 10 ans de hits &mdash;</p>
+    <div class="disco-carousel rv" id="discoCarousel">
+      <div class="disco-track" id="discoTrack">
+        <!-- SLIDE 1 -->
+        <div class="disco-slide">
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b273b8d75934952224aa431ef6dd" alt="DO BANDIT MIN" loading="lazy" onerror="this.src='https://i.scdn.co/image/ab67616d00004851b8d75934952224aa431ef6dd'"/><span>Do Bandit Min</span><small>2025</small></div>
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b27325a4cbd4b9ccd7afaa133043" alt="Amour Compliqué" loading="lazy" onerror="this.parentElement.style.background='#191919'"/><span>Amour Compliqu&eacute;</span><small>2025</small></div>
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b273ad9923f959dc1a65941aa993" alt="Fité" loading="lazy"/><span>Fit&eacute;</span><small>2024</small></div>
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b273ba792c80e2f24ff75d76a381" alt="Zando" loading="lazy"/><span>Zando</span><small>2024</small></div>
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b273ca6f450209ab1c44ef0e67b4" alt="La Souris Danse" loading="lazy"/><span>La Souris Danse</span><small>2024</small></div>
+        </div>
+        <!-- SLIDE 2 -->
+        <div class="disco-slide">
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b273b1ddcc9fb0075e1c791d8b5a" alt="C'est Toi" loading="lazy"/><span>C'est Toi</span><small>2023</small></div>
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b2730b51ea1e532a7ab5a17692d7" alt="Week-End Mood" loading="lazy"/><span>Week-End Mood</span><small>2023</small></div>
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b2739ea914b62d91511d437c56b0" alt="Mahu Si" loading="lazy"/><span>Mahu Si</span><small>2023</small></div>
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b273ca8a2d111c5822283af0cb7f" alt="Diyo" loading="lazy"/><span>Diyo</span><small>2022</small></div>
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b273f2b445a6967023dbc7414d1b" alt="Assidogbèa" loading="lazy"/><span>Assidogb&egrave;a</span><small>2024</small></div>
+        </div>
+        <!-- SLIDE 3 -->
+        <div class="disco-slide">
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b2735767b0870e90725e2cc17053" alt="Bella" loading="lazy"/><span>Bella</span><small>2019</small></div>
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b2737e49dc0a8bd33b2953901add" alt="Chérie Coco" loading="lazy"/><span>Ch&eacute;rie Coco</span><small>2020</small></div>
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b27360bbdae69675967d64739e83" alt="Tu mérites tout" loading="lazy"/><span>Tu M&eacute;rites Tout</span><small>2021</small></div>
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b273d64099313f868c2e2a922c8a" alt="Nou towé lè" loading="lazy"/><span>Nou Tw&eacute; L&egrave;</span><small>2021</small></div>
+          <div class="dsc"><img src="https://i.scdn.co/image/ab67616d0000b2733dd9c1b35b250fc911be59df" alt="Enfant de dieu" loading="lazy"/><span>Enfant de Dieu</span><small>2022</small></div>
+        </div>
       </div>
-      <div class="hype-stat">
-        <span class="hype-stat-num">4×</span>
-        <span class="hype-stat-label">Meilleur artiste Bénin Top 10</span>
-      </div>
-      <div class="hype-stat">
-        <span class="hype-stat-num">798K</span>
-        <span class="hype-stat-label">Fans sur Facebook</span>
-      </div>
-      <div class="hype-stat">
-        <span class="hype-stat-num">1 NUIT</span>
-        <span class="hype-stat-label">Pour marquer l'histoire</span>
+      <!-- Controls -->
+      <div class="disco-nav">
+        <button class="disco-prev" id="discoPrev" aria-label="Précédent"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="disco-dots" id="discoDots">
+          <button class="disco-dot active" data-idx="0"></button>
+          <button class="disco-dot" data-idx="1"></button>
+          <button class="disco-dot" data-idx="2"></button>
+        </div>
+        <button class="disco-next" id="discoNext" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
     </div>
-
-    <div class="fade-up">
-      <p class="hype-tracks-title">◆ Les sons qui ont fait le Bénin danser ◆</p>
-      <div class="hype-tracks">
-        <div class="hype-track">🔥 Adigoue Gboun Gboun</div>
-        <div class="hype-track">💫 Bella</div>
-        <div class="hype-track">❤️ Madame</div>
-        <div class="hype-track">🎵 Chéri Coco</div>
-        <div class="hype-track">✨ Tu Mérites Tout</div>
-        <div class="hype-track">🌙 Vano Wè</div>
-        <div class="hype-track">⚡ Je S'en Fou</div>
-        <div class="hype-track">🎤 Nou Twé Lè</div>
-        <div class="hype-track">🏆 Diyo</div>
-        <div class="hype-track">💎 Enfant de Dieu</div>
-        <div class="hype-track">🔥 Fité</div>
-        <div class="hype-track">🌟 Coup Monté</div>
-        <div class="hype-track">💿 C'est Toi</div>
-        <div class="hype-track">🎶 Weekend Mood</div>
-        <div class="hype-track">🌍 Russie</div>
-        <div class="hype-track">⭐ Assidogbèa</div>
-      </div>
+    <div class="hma rv">
+      <i class="fa-solid fa-quote-left hmai"></i>
+      <p class="hmq">Le 04 Avril 2026, le Majestic de Wologu&egrave;d&egrave; ne sera pas une salle de spectacle. Ce sera <strong>le tribunal du B&eacute;nin entier</strong> &mdash; et le verdict sera rendu en d&eacute;cibels. Dix ans de battles, de hits, de nuits blanches et de sacrifices. <strong>Une seule nuit pour tout c&eacute;l&eacute;brer.</strong> Ceux qui seront l&agrave; le diront &agrave; leurs enfants. Les autres regarderont les photos et regretteront.</p>
+      <span class="hmat"><i class="fa-solid fa-map-pin"></i>&nbsp;04.04.2026 &middot; Cotonou, B&eacute;nin &middot; Majestic de Wologu&egrave;d&egrave;</span>
     </div>
-
-    <div class="hype-quote fade-up">
-      <p>
-        Ce soir-là, le Majestic de Wologuèdè ne sera pas une salle.
-        Ce sera le cœur battant du Bénin tout entier.
-        Et si tu n'es pas là, tu vivras le regret toute ta vie.
-      </p>
-      <span class="quote-attr">— 04.04.2026 · Cotonou</span>
-    </div>
-
-    <div class="hype-visual-row fade-up">
-      <div class="hype-card">
-        <div class="hype-card-icon">🎭</div>
-        <h4>Une scène monumentale</h4>
-        <p>Production scénique inédite au Bénin. Lumières, effets visuels, son surround — une expérience sensorielle complète pensée pour te souffler le souffle.</p>
-      </div>
-      <div class="hype-card">
-        <div class="hype-card-icon">👑</div>
-        <h4>Le Gang est réuni</h4>
-        <p>10 ans d'histoire, les collaborateurs, les proches, les surprises. Cette nuit-là, tout le monde sera présent. Le Gang ne laisse personne derrière.</p>
-      </div>
-      <div class="hype-card">
-        <div class="hype-card-icon">🌍</div>
-        <h4>Cotonou au centre du monde</h4>
-        <p>De Paris à Montréal, tous les yeux sont tournés vers Cotonou le 04 Avril. Sois là, ou regarde les photos de ceux qui y étaient.</p>
-      </div>
+    <div class="hcar rv">
+      <div class="hca"><div class="hcai"><i class="fa-solid fa-bolt"></i></div><h4>Une sc&egrave;ne monumentale</h4><p>Production sc&eacute;nique in&eacute;dite au B&eacute;nin. Lumi&egrave;res, effets visuels, son surround de qualit&eacute; internationale. Pas un show &mdash; une exp&eacute;rience qui te coupe le souffle d&egrave;s la premi&egrave;re note.</p></div>
+      <div class="hca"><div class="hcai"><i class="fa-solid fa-users"></i></div><h4>Le Gang est r&eacute;uni</h4><p>Dix ans d'histoire, de collabs, de fr&egrave;res de sc&egrave;ne. Cette nuit-l&agrave;, personne ne manque &agrave; l'appel. Des surprises que le Gang n'a pas encore d&eacute;voil&eacute;es. Sois l&agrave; pour les vivre en direct.</p></div>
+      <div class="hca"><div class="hcai"><i class="fa-solid fa-globe-africa"></i></div><h4>Cotonou au centre du monde</h4><p>De Paris &agrave; Montr&eacute;al, de Dakar &agrave; Lagos &mdash; tout le monde a les yeux sur le B&eacute;nin le 04 Avril. Rejoins ceux qui traversent des oc&eacute;ans pour &ecirc;tre l&agrave;. C'est maintenant ou jamais.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     ARTISTE
-══════════════════════════════════════ -->
 <section id="artiste">
   <div class="container">
-    <div class="artiste-grid">
-      <div class="artiste-img-wrap fade-up">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Vano_Baby_%C3%A0_la_f%C3%AAte_de_la_musique_2021_au_B%C3%A9nin_21.jpg/800px-Vano_Baby_%C3%A0_la_f%C3%AAte_de_la_musique_2021_au_B%C3%A9nin_21.jpg"
-          alt="Vano Baby"
-          onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#1a1a1a,#111)';this.style.height='500px';this.style.display='flex';this.alt='Vano Baby'"
-        />
-        <div class="artiste-img-overlay"></div>
-        <div class="artiste-awards">
-          <span class="artiste-awards-num">×4</span>
-          <span class="artiste-awards-text">Artiste de l'année</span>
-        </div>
+    <div class="aw">
+      <div class="av rv">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Vano_Baby_%C3%A0_la_f%C3%AAte_de_la_musique_2021_au_B%C3%A9nin_21.jpg/800px-Vano_Baby_%C3%A0_la_f%C3%AAte_de_la_musique_2021_au_B%C3%A9nin_21.jpg" alt="Vano Baby" onerror="this.style.background='#191919';this.src=''"/>
+        <div class="ab"><span class="abn">&times;4</span><span class="abt">Artiste de l'ann&eacute;e</span></div>
       </div>
-
-      <div class="artiste-content fade-up">
-        <div class="section-label">L'artiste & l'histoire</div>
-        <h2 class="section-title">AUREL<br><span>SYLVANUS</span><br>ADJIVON</h2>
-
-        <p>
-          Né le 9 mai 1994 à Sainte-Rita, Cotonou, <strong>Aurel Sylvanus Adjivon</strong> — alias
-          <strong>Vano Baby, alias Azéto Gbèdé</strong> — entre dans l'univers du rap dès sa jeune enfance.
-          Originaire de Grand-Popo, il grandit avec une rage tranquille et un talent brut.
-        </p>
-        <p>
-          En 2014, il remporte le concours <strong>MTN Découverte Talents</strong> — 5 millions de FCFA et
-          un premier tremplin vers la gloire nationale. Ses débuts : du rap cru, audacieux, qui fait le tour du pays.
-          Puis en 2019, <strong>la transformation.</strong> "Madame", "Chéri Coco", "Tu Mérites Tout" —
-          une maturité artistique qui élargit sa fanbase au-delà du cercle rap.
-        </p>
-        <p>
-          Depuis 2021, <strong>meilleur artiste du Bénin 4 années consécutives</strong> au Bénin Top 10 Awards.
-          Fondateur du label <strong>Azéto Gbèdé Music</strong>, artiste de Redline Records.
-          Un empire construit single après single, sans jamais sortir d'album.
-          <strong>La stratégie d'un sorcier.</strong>
-        </p>
-
-        <div class="artiste-milestones">
-          <div class="milestone">
-            <span class="milestone-year">2013</span>
-            <span class="milestone-text">Premier single "Drague Azonto" — la naissance d'une légende</span>
-          </div>
-          <div class="milestone">
-            <span class="milestone-year">2014</span>
-            <span class="milestone-text">Champion MTN Découverte Talents · 5M FCFA · Premier tremplin</span>
-          </div>
-          <div class="milestone">
-            <span class="milestone-year">2019</span>
-            <span class="milestone-text">Virage artistique majeur avec "Madame" · Nouveau visage</span>
-          </div>
-          <div class="milestone">
-            <span class="milestone-year">2021</span>
-            <span class="milestone-text">1er titre Bénin Top 10 "Artiste de l'année"</span>
-          </div>
-          <div class="milestone">
-            <span class="milestone-year">2022–24</span>
-            <span class="milestone-text">3 titres consécutifs · Record inégalé dans l'histoire du Bénin</span>
-          </div>
-          <div class="milestone">
-            <span class="milestone-year">2026</span>
-            <span class="milestone-text">10 ANS DU GANG · Le concert de la décennie · 04 Avril</span>
-          </div>
+      <div class="rv d1">
+        <div class="sl">L'artiste &amp; l'histoire</div>
+        <h2 class="st">AUREL<br>SYLVANUS<br><em>ADJIVON</em></h2>
+        <p class="abio">N&eacute; le 9 mai 1994 &agrave; Sainte-Rita, Cotonou. Originaire de <strong>Grand-Popo</strong>. &Agrave; l'&eacute;tat civil Aurel Sylvanus Adjivon &mdash; dans la rue, dans les oreilles de tout un pays : <strong>Vano Baby. Alias Az&eacute;to Gb&egrave;d&egrave;.</strong></p>
+        <p class="abio">Il entre dans le rap enfant, presque avant d'avoir une voix. En 2014, il remporte le <strong>MTN D&eacute;couverte Talents</strong> &mdash; 5 millions de FCFA et un tremplin national. Quelques ann&eacute;es plus tard, "Madame" change tout. <strong>Les fans explosent.</strong></p>
+        <p class="abio">2021, 2022, 2023, 2024 : <strong>meilleur artiste du B&eacute;nin quatre fois de suite</strong> au B&eacute;nin Top 10 Awards. Un record. Fondateur du label <strong>Az&eacute;to Gb&egrave;d&egrave; Music</strong>. Z&eacute;ro album. Des dizaines de hits. <strong>Le sorcier fait &ccedil;a sans filet.</strong></p>
+        <div class="tl">
+          <div class="tli"><span class="tly">2013</span><div class="tld"></div><span class="tlt">Premier single "Drague Azonto" &mdash; Cotonou commence &agrave; &eacute;couter</span></div>
+          <div class="tli"><span class="tly">2014</span><div class="tld"></div><span class="tlt">Champion MTN D&eacute;couverte Talents &middot; 5M FCFA &middot; Le tremplin</span></div>
+          <div class="tli"><span class="tly">2016</span><div class="tld"></div><span class="tlt">"Adigoue Gboun Gboun" fait le tour du pays du nord au sud</span></div>
+          <div class="tli"><span class="tly">2019</span><div class="tld"></div><span class="tlt">Virage avec "Madame" &mdash; une nouvelle &egrave;re artistique s'ouvre</span></div>
+          <div class="tli"><span class="tly">2021&ndash;24</span><div class="tld"></div><span class="tlt">4 troph&eacute;es cons&eacute;cutifs "Artiste de l'ann&eacute;e" &mdash; record national</span></div>
+          <div class="tli"><span class="tly">2026</span><div class="tld"></div><span class="tlt"><strong>10 ANS DU GANG &middot; 04 Avril &middot; Majestic de Wologu&egrave;d&egrave;</strong></span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     BILLETTERIE
-══════════════════════════════════════ -->
 <section id="billetterie">
   <div class="container">
-    <div class="section-label fade-up">Billetterie</div>
-    <h2 class="section-title fade-up">CHOISIR SA<br><span>PLACE.</span></h2>
-    <p class="fade-up" style="color:var(--text-muted);margin-bottom:3rem;font-size:.9rem;">Sélectionne ta catégorie, ajuste la quantité — ton total se met à jour en direct.</p>
-
-    <div class="tickets-grid fade-up" id="tickets-grid">
-
-      <!-- TICKET 1: 5K -->
-      <div class="ticket-card" data-cat="Gang Standard" data-price="5000" data-stock="200" data-sold="120">
-        <div class="ticket-header">
-          <span class="ticket-category">Gang Standard</span>
-          <span class="ticket-price">5 000</span>
-          <span class="ticket-price-sub">FCFA / place</span>
-        </div>
-        <div class="ticket-body">
-          <ul class="ticket-perks">
-            <li>Accès général</li>
-            <li>Ambiance Gang 100%</li>
-            <li>Entrée à partir de 16h</li>
-          </ul>
-          <div class="gauge-wrap">
-            <div class="gauge-label">
-              <span>Places restantes</span>
-              <span class="gauge-remaining">80</span>
-            </div>
-            <div class="gauge-bar">
-              <div class="gauge-fill low" style="width:40%"></div>
-            </div>
-          </div>
-          <div class="qty-row">
-            <div class="qty-btn minus">−</div>
-            <span class="qty-num">0</span>
-            <div class="qty-btn plus">+</div>
-            <span class="qty-label">place(s)</span>
-          </div>
+    <div class="sl rv">Billetterie</div>
+    <h2 class="st rv d1">CHOISIS TA<br><em>PLACE.</em></h2>
+    <p class="rv d2" style="color:var(--mut);margin-bottom:2.5rem;font-size:.9rem;font-style:italic;">S&eacute;lectionne ta cat&eacute;gorie, ajuste la quantit&eacute; &mdash; ton total se met &agrave; jour en direct.</p>
+    <div class="tkg rv" id="tkg">
+      <div class="tkc" data-cat="Gang Standard" data-price="5000" data-rem="80">
+        <div class="tkh"><span class="tkcat">Standard</span><span class="tkp">5 000</span><span class="tkpu">FCFA / place</span></div>
+        <div class="tkb">
+          <ul class="tkpl"><li><i class="fa-solid fa-check"></i>Acc&egrave;s g&eacute;n&eacute;ral &middot; Pelouse</li><li><i class="fa-solid fa-check"></i>Ambiance Gang 100%</li><li><i class="fa-solid fa-check"></i>Entr&eacute;e &agrave; partir de 16h00</li></ul>
+          <div class="ga"><div class="gam"><span><i class="fa-solid fa-fire-flame-curved" style="color:var(--red);font-size:.65rem;"></i> Places restantes</span><span class="gr">80</span></div><div class="gat"><div class="gab crit" style="width:40%"></div></div></div>
+          <div class="qw"><div class="qb minus"><i class="fa-solid fa-minus" style="font-size:.65rem;"></i></div><span class="qv">0</span><div class="qb plus"><i class="fa-solid fa-plus" style="font-size:.65rem;"></i></div><span class="ql">place(s)</span></div>
         </div>
       </div>
-
-      <!-- TICKET 2: 15K -->
-      <div class="ticket-card" data-cat="Gang VIP" data-price="15000" data-stock="150" data-sold="85">
-        <div class="ticket-header">
-          <span class="ticket-category">Gang VIP</span>
-          <span class="ticket-price">15 000</span>
-          <span class="ticket-price-sub">FCFA / place</span>
-        </div>
-        <div class="ticket-body">
-          <ul class="ticket-perks">
-            <li>Zone VIP dédiée</li>
-            <li>Vue dégagée scène</li>
-            <li>Accès dès 15h30</li>
-          </ul>
-          <div class="gauge-wrap">
-            <div class="gauge-label">
-              <span>Places restantes</span>
-              <span class="gauge-remaining">65</span>
-            </div>
-            <div class="gauge-bar">
-              <div class="gauge-fill" style="width:57%"></div>
-            </div>
-          </div>
-          <div class="qty-row">
-            <div class="qty-btn minus">−</div>
-            <span class="qty-num">0</span>
-            <div class="qty-btn plus">+</div>
-            <span class="qty-label">place(s)</span>
-          </div>
+      <div class="tkc" data-cat="Gang VIP" data-price="15000" data-rem="65">
+        <div class="tkh"><span class="tkcat">VIP</span><span class="tkp">15 000</span><span class="tkpu">FCFA / place</span></div>
+        <div class="tkb">
+          <ul class="tkpl"><li><i class="fa-solid fa-check"></i>Zone VIP d&eacute;di&eacute;e</li><li><i class="fa-solid fa-check"></i>Vue d&eacute;gag&eacute;e sur sc&egrave;ne</li><li><i class="fa-solid fa-check"></i>Acc&egrave;s prioritaire 15h30</li></ul>
+          <div class="ga"><div class="gam"><span><i class="fa-solid fa-fire-flame-curved" style="color:var(--red);font-size:.65rem;"></i> Places restantes</span><span class="gr">65</span></div><div class="gat"><div class="gab" style="width:57%"></div></div></div>
+          <div class="qw"><div class="qb minus"><i class="fa-solid fa-minus" style="font-size:.65rem;"></i></div><span class="qv">0</span><div class="qb plus"><i class="fa-solid fa-plus" style="font-size:.65rem;"></i></div><span class="ql">place(s)</span></div>
         </div>
       </div>
-
-      <!-- TICKET 3: 50K -->
-      <div class="ticket-card" data-cat="Gang Gold" data-price="50000" data-stock="80" data-sold="55">
-        <div class="ticket-header">
-          <span class="ticket-category">Gang Gold</span>
-          <span class="ticket-price">50 000</span>
-          <span class="ticket-price-sub">FCFA / place</span>
-        </div>
-        <div class="ticket-body">
-          <ul class="ticket-perks">
-            <li>Espace Gold Premium</li>
-            <li>Cocktail d'accueil offert</li>
-            <li>Entrée prioritaire VIP</li>
-          </ul>
-          <div class="gauge-wrap">
-            <div class="gauge-label">
-              <span>Places restantes</span>
-              <span class="gauge-remaining">25</span>
-            </div>
-            <div class="gauge-bar">
-              <div class="gauge-fill low" style="width:31%"></div>
-            </div>
-          </div>
-          <div class="qty-row">
-            <div class="qty-btn minus">−</div>
-            <span class="qty-num">0</span>
-            <div class="qty-btn plus">+</div>
-            <span class="qty-label">place(s)</span>
-          </div>
+      <div class="tkc" data-cat="Gang Gold" data-price="50000" data-rem="25">
+        <div class="tkh"><span class="tkcat">Gold</span><span class="tkp">50 000</span><span class="tkpu">FCFA / place</span></div>
+        <div class="tkb">
+          <ul class="tkpl"><li><i class="fa-solid fa-check"></i>Espace Gold Premium</li><li><i class="fa-solid fa-check"></i>Cocktail d'accueil offert</li><li><i class="fa-solid fa-check"></i>Entr&eacute;e VIP prioritaire</li></ul>
+          <div class="ga"><div class="gam"><span><i class="fa-solid fa-triangle-exclamation" style="color:#ff3b3b;font-size:.65rem;"></i> Presque &eacute;puis&eacute;</span><span class="gr">25</span></div><div class="gat"><div class="gab crit" style="width:31%"></div></div></div>
+          <div class="qw"><div class="qb minus"><i class="fa-solid fa-minus" style="font-size:.65rem;"></i></div><span class="qv">0</span><div class="qb plus"><i class="fa-solid fa-plus" style="font-size:.65rem;"></i></div><span class="ql">place(s)</span></div>
         </div>
       </div>
-
-      <!-- TICKET 4: 100K -->
-      <div class="ticket-card" data-cat="Gang Platinum" data-price="100000" data-stock="20" data-sold="14">
-        <div class="ticket-header">
-          <span class="ticket-category">Gang Platinum</span>
-          <span class="ticket-price">100 000</span>
-          <span class="ticket-price-sub">FCFA / place</span>
-        </div>
-        <div class="ticket-body">
-          <ul class="ticket-perks">
-            <li>Table privée front-stage</li>
-            <li>Meet & Greet exclusif</li>
-            <li>Pack cadeau Gang officiel</li>
-          </ul>
-          <div class="gauge-wrap">
-            <div class="gauge-label">
-              <span>Places restantes</span>
-              <span class="gauge-remaining">6</span>
-            </div>
-            <div class="gauge-bar">
-              <div class="gauge-fill low" style="width:30%"></div>
-            </div>
-          </div>
-          <div class="qty-row">
-            <div class="qty-btn minus">−</div>
-            <span class="qty-num">0</span>
-            <div class="qty-btn plus">+</div>
-            <span class="qty-label">place(s)</span>
-          </div>
+      <div class="tkc" data-cat="Gang Platinum" data-price="100000" data-rem="6">
+        <div class="tkh"><span class="tkcat">Platinum</span><span class="tkp">100 000</span><span class="tkpu">FCFA / place</span></div>
+        <div class="tkb">
+          <ul class="tkpl"><li><i class="fa-solid fa-check"></i>Table priv&eacute;e front-stage</li><li><i class="fa-solid fa-check"></i>Meet &amp; Greet exclusif</li><li><i class="fa-solid fa-check"></i>Pack cadeau Gang officiel</li></ul>
+          <div class="ga"><div class="gam"><span><i class="fa-solid fa-triangle-exclamation" style="color:#ff3b3b;font-size:.65rem;"></i> Derni&egrave;res places</span><span class="gr">6</span></div><div class="gat"><div class="gab crit" style="width:30%"></div></div></div>
+          <div class="qw"><div class="qb minus"><i class="fa-solid fa-minus" style="font-size:.65rem;"></i></div><span class="qv">0</span><div class="qb plus"><i class="fa-solid fa-plus" style="font-size:.65rem;"></i></div><span class="ql">place(s)</span></div>
         </div>
       </div>
-
     </div>
-
-    <!-- ORDER SUMMARY -->
-    <div class="order-summary fade-up">
-      <p class="order-summary-title">◆ Récapitulatif de commande ◆</p>
-      <div class="order-lines" id="order-lines">
-        <p style="color:var(--text-muted);font-size:.85rem;font-style:italic;">Sélectionne des tickets ci-dessus pour voir ton panier.</p>
-      </div>
-      <div class="order-total-row">
-        <span class="order-total-label">Total à payer</span>
-        <span class="order-total-amount" id="order-total">0 FCFA</span>
-      </div>
-      <button id="reserve-btn" disabled>
-        <span id="reserve-btn-text">Sélectionne d'abord des tickets</span>
-      </button>
-      <p class="empty-hint" id="empty-hint">Les tickets sont nominatifs · Aucun remboursement après achat</p>
+    <div class="ob rv">
+      <p class="obt"><i class="fa-solid fa-receipt"></i>&nbsp;&nbsp;R&eacute;capitulatif de commande</p>
+      <div class="ol" id="ol"><p class="oe">S&eacute;lectionne des tickets ci-dessus pour voir ton panier.</p></div>
+      <div class="osep"></div>
+      <div class="otr"><span class="otl">Total &agrave; payer</span><span class="otn" id="otn">0 FCFA</span></div>
+      <button class="octa" id="rbtn" disabled><i class="fa-solid fa-ticket" id="ricon"></i><span id="rtxt">S&eacute;lectionne d'abord tes tickets</span></button>
+      <p class="odi"><i class="fa-solid fa-lock"></i>&nbsp;Tickets nominatifs &middot; Aucun remboursement apr&egrave;s achat</p>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     ACCÈS
-══════════════════════════════════════ -->
 <section id="acces">
   <div class="container">
-    <div class="section-label fade-up">Infos Pratiques</div>
-    <h2 class="section-title fade-up">ACCÈS &<br><span>INFOS.</span></h2>
-
-    <div class="acces-grid fade-up">
-      <div class="acces-infos">
-        <div class="info-block">
-          <div class="info-block-title">
-            <span class="icon">📍</span>
-            Lieu & Adresse
-          </div>
-          <p><strong>Majestic de Wologuèdè</strong><br>
-          (ex Canal Olympia Wologuèdè)<br>
-          Wologuèdè, Cotonou, Bénin</p>
-        </div>
-
-        <div class="info-block">
-          <div class="info-block-title">
-            <span class="icon">🕓</span>
-            Programme
-          </div>
-          <ul>
-            <li>Ouverture des portes : 16h00</li>
-            <li>Premières parties : 17h–20h</li>
-            <li>Vano Baby on stage : ~21h</li>
-            <li>Fin estimée : 01h00</li>
-          </ul>
-        </div>
-
-        <div class="info-block">
-          <div class="info-block-title">
-            <span class="icon">🚗</span>
-            Comment venir
-          </div>
-          <ul>
-            <li>Taxi : Wologuèdè / Canal Olympia</li>
-            <li>Zem : quartier Wologuèdè</li>
-            <li>Parking disponible sur place</li>
-            <li>Accessible en transport en commun</li>
-          </ul>
-        </div>
-
-        <div class="info-block">
-          <div class="info-block-title">
-            <span class="icon">⚠️</span>
-            À savoir avant d'arriver
-          </div>
-          <ul>
-            <li>Ticket obligatoire à l'entrée</li>
-            <li>Interdiction aux moins de 16 ans</li>
-            <li>Contrôle de sécurité à l'entrée</li>
-            <li>Pas de remboursement post-achat</li>
-          </ul>
-        </div>
+    <div class="sl rv">Infos Pratiques</div>
+    <h2 class="st rv d1">ACC&Egrave;S &amp;<br><em>INFOS.</em></h2>
+    <div class="ag">
+      <div class="ab2 rv">
+        <div class="ib"><div class="ibt"><i class="fa-solid fa-location-dot"></i>Lieu &amp; adresse</div><p><strong>Majestic de Wologu&egrave;d&egrave;</strong><br>(ex Canal Olympia Wologu&egrave;d&egrave;)<br>Wologu&egrave;d&egrave;, Cotonou, B&eacute;nin</p></div>
+        <div class="ib"><div class="ibt"><i class="fa-regular fa-clock"></i>Programme</div><ul><li><i class="fa-solid fa-angle-right"></i>Ouverture : 16h00</li><li><i class="fa-solid fa-angle-right"></i>Premi&egrave;res parties : 17h00&ndash;20h00</li><li><i class="fa-solid fa-angle-right"></i>Vano Baby on stage : ~21h00</li><li><i class="fa-solid fa-angle-right"></i>Fin estim&eacute;e : 01h00</li></ul></div>
+        <div class="ib"><div class="ibt"><i class="fa-solid fa-car-side"></i>Comment venir</div><ul><li><i class="fa-solid fa-angle-right"></i>Zem (taxi moto) : Wologu&egrave;d&egrave;</li><li><i class="fa-solid fa-angle-right"></i>Taxi voiture : Canal Olympia</li><li><i class="fa-solid fa-angle-right"></i>Parking sur place</li><li><i class="fa-solid fa-angle-right"></i>Transport en commun disponible</li></ul></div>
+        <div class="ib"><div class="ibt"><i class="fa-solid fa-circle-exclamation"></i>&Agrave; savoir</div><ul><li><i class="fa-solid fa-angle-right"></i>Ticket obligatoire et nominatif</li><li><i class="fa-solid fa-angle-right"></i>Interdit aux moins de 16 ans</li><li><i class="fa-solid fa-angle-right"></i>Contr&ocirc;le de s&eacute;curit&eacute; &agrave; l'entr&eacute;e</li><li><i class="fa-solid fa-angle-right"></i>Aucun remboursement apr&egrave;s achat</li></ul></div>
       </div>
-
-      <div class="acces-map">
-        <div class="acces-map-content">
-          <div class="acces-map-icon">📍</div>
-          <p style="font-size:1rem;color:var(--white);font-weight:600;">Majestic de Wologuèdè</p>
-          <p style="font-size:.85rem;color:var(--text-muted);margin-top:.3rem;">Cotonou, Bénin</p>
-          <a href="https://maps.google.com/?q=Canal+Olympia+Wologuèdè+Cotonou+Bénin" target="_blank" rel="noopener">
-            📍 Ouvrir dans Google Maps
-          </a>
-        </div>
+      <div class="amp rv d1">
+        <i class="fa-solid fa-map-location-dot mi"></i>
+        <h4>Majestic de Wologu&egrave;d&egrave;</h4>
+        <p>Cotonou, B&eacute;nin<br>Ex Canal Olympia Wologu&egrave;d&egrave;</p>
+        <a href="https://maps.google.com/?q=Canal+Olympia+Wologuede+Cotonou+Benin" target="_blank" rel="noopener"><i class="fa-solid fa-diamond-turn-right"></i>Itin&eacute;raire Google Maps</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     FAQ
-══════════════════════════════════════ -->
 <section id="faq">
   <div class="container">
-    <div class="section-label fade-up">FAQ</div>
-    <h2 class="section-title fade-up">TES QUESTIONS,<br><span>NOS RÉPONSES.</span></h2>
-
-    <div class="faq-wrap fade-up">
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>Comment acheter mes tickets ?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Tu peux sélectionner tes tickets directement sur cette page dans la section <strong>Billetterie</strong>. Choisis ta catégorie, ajuste la quantité, et valide ta commande. Les billets te seront transmis par le canal de distribution officiel.
-          </div>
-        </div>
+    <div class="fg">
+      <div class="fa rv">
+        <div class="sl">FAQ</div>
+        <h2 class="st">TES<br>QUES&shy;TIONS.<br><em>NOS R&Eacute;PONSES.</em></h2>
+        <p>Tu as un doute&nbsp;? Un truc pas clair&nbsp;? On a d&eacute;j&agrave; r&eacute;pondu. Si tu trouves pas, c'est que la r&eacute;ponse est simple&nbsp;: <strong style="color:var(--wht);">sois l&agrave; le 04 Avril.</strong></p>
+        <a href="#billetterie" class="br" style="margin-top:2rem;display:inline-flex;"><i class="fa-solid fa-ticket"></i>Prendre mes tickets</a>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>Quelles sont les différentes catégories de tickets ?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            4 catégories sont disponibles : <strong>Gang Standard (5 000 FCFA)</strong>, <strong>Gang VIP (15 000 FCFA)</strong>, <strong>Gang Gold (50 000 FCFA)</strong> et <strong>Gang Platinum (100 000 FCFA)</strong>. Chaque catégorie offre un accès et des avantages différents. Les détails sont visibles sur chaque carte de ticket.
-          </div>
-        </div>
+      <div class="rv d1">
+        <div class="fi"><button class="fq"><span>Comment acheter mes tickets&nbsp;?</span><i class="fa-solid fa-plus ficon"></i></button><div class="fan"><div class="fani">Tu peux s&eacute;lectionner tes tickets directement sur cette page dans la section <strong>Billetterie</strong>. Choisis ta cat&eacute;gorie, r&egrave;gle la quantit&eacute; avec les boutons +/&minus;, et clique sur R&eacute;server.</div></div></div>
+        <div class="fi"><button class="fq"><span>Quelles sont les cat&eacute;gories disponibles&nbsp;?</span><i class="fa-solid fa-plus ficon"></i></button><div class="fan"><div class="fani">4 cat&eacute;gories : <strong>Gang Standard (5 000 FCFA)</strong>, <strong>Gang VIP (15 000 FCFA)</strong>, <strong>Gang Gold (50 000 FCFA)</strong> et <strong>Gang Platinum (100 000 FCFA)</strong>. Les d&eacute;tails des avantages sont affich&eacute;s sur chaque carte ticket.</div></div></div>
+        <div class="fi"><button class="fq"><span>Est-ce qu'un remboursement est possible&nbsp;?</span><i class="fa-solid fa-plus ficon"></i></button><div class="fan"><div class="fani"><strong>Non.</strong> Les tickets sont nominatifs et aucun remboursement n'est accord&eacute; apr&egrave;s l'achat. En cas d'emp&ecirc;chement, contacte le service client officiel.</div></div></div>
+        <div class="fi"><button class="fq"><span>&Agrave; quelle heure faut-il arriver&nbsp;?</span><i class="fa-solid fa-plus ficon"></i></button><div class="fan"><div class="fani">Les portes ouvrent &agrave; <strong>16h00</strong>. Tickets Gold et Platinum : acc&egrave;s prioritaire d&egrave;s 15h30. On recommande d'arriver t&ocirc;t pour profiter des premi&egrave;res parties.</div></div></div>
+        <div class="fi"><button class="fq"><span>Y aura-t-il des invit&eacute;s surprise&nbsp;?</span><i class="fa-solid fa-plus ficon"></i></button><div class="fan"><div class="fani">Le Gang ne r&eacute;v&egrave;le rien &agrave; l'avance. Ce qu'on peut confirmer : <strong>10 ans de carri&egrave;re ne se f&ecirc;tent pas seul.</strong> Sois l&agrave; le 04 Avril pour le vivre en direct &mdash; pas en story le lendemain.</div></div></div>
+        <div class="fi"><button class="fq"><span>Je suis en diaspora &mdash; comment m'organiser&nbsp;?</span><i class="fa-solid fa-plus ficon"></i></button><div class="fan"><div class="fani">Les tickets sont achetables en ligne depuis n'importe o&ugrave;. L'<strong>A&eacute;roport de Cotonou (COO)</strong> est desservi depuis Paris, Bruxelles, Montr&eacute;al et plusieurs villes africaines. C'est le moment de rentrer.</div></div></div>
+        <div class="fi"><button class="fq"><span>Le concert sera-t-il film&eacute; ou diffus&eacute; en live&nbsp;?</span><i class="fa-solid fa-plus ficon"></i></button><div class="fan"><div class="fani">Toutes les annonces sont publi&eacute;es sur la <strong>page Facebook officielle VANO BABY Officiel</strong> (798K abonn&eacute;s). Mais aucune diffusion ne remplace d'y &ecirc;tre.</div></div></div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>Est-ce qu'il y a un remboursement possible ?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            <strong>Non.</strong> Les tickets sont nominatifs et aucun remboursement n'est accordé après l'achat. En cas d'empêchement, nous te recommandons de vérifier si un transfert de billet est possible en contactant le service client officiel.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>À quelle heure arrive-t-on ?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Les portes ouvrent à <strong>16h00</strong>. Pour les tickets Gold et Platinum, un accès prioritaire est prévu dès 15h30. Nous recommandons d'arriver tôt pour éviter les files et profiter des premières parties.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>Y a-t-il des invités surprise ?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Le Gang ne dévoile rien à l'avance 😏. Ce qu'on peut dire : <strong>10 ans de carrière, ça ne se célèbre pas seul.</strong> Sois là le 04 Avril pour découvrir qui sera sur scène.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>Je suis en diaspora — comment je m'organise ?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Les tickets sont achetables en ligne depuis n'importe où dans le monde. Pour le voyage, les vols vers <strong>l'Aéroport International de Cotonou (COO)</strong> desservent la ville depuis Paris, Bruxelles, Montréal et plusieurs villes africaines. C'est le moment de rentrer.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>Le concert est-il filmé / diffusé en live ?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            Toutes les informations sur une éventuelle diffusion seront communiquées sur les <strong>réseaux officiels de Vano Baby</strong>. Reste connecté sur la page Facebook <em>VANO BABY Officiel</em> (798K abonnés) pour les annonces en temps réel.
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">VANO BABY</div>
-  <div class="footer-sub">10 Ans du Gang · 04 Avril 2026 · Majestic de Wologuèdè</div>
-  <div class="footer-line"></div>
-  <div class="footer-socials">
-    <a href="https://www.facebook.com/p/VANO-BABY-Officiel-100044293546221/" target="_blank">Facebook</a>
-    <a href="#billetterie">Billets</a>
-    <a href="#faq">FAQ</a>
+  <div class="fi2">
+    <div class="fl">VANO <span>BABY</span></div>
+    <div class="fe"><i class="fa-regular fa-calendar" style="color:var(--red);"></i>&nbsp;10 Ans du Gang &middot; 04 Avril 2026 &middot; Majestic de Wologu&egrave;d&egrave;</div>
+    <div class="fline"></div>
+    <div class="flk">
+      <a href="https://www.facebook.com/p/VANO-BABY-Officiel-100044293546221/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook</a>
+      <a href="#hype">La Hype</a><a href="#billetterie">Billets</a><a href="#acces">Acc&egrave;s</a><a href="#faq">FAQ</a>
+    </div>
+    <p class="fc"><i class="fa-regular fa-copyright"></i> 2026 Vano Baby &middot; Az&eacute;to Gb&egrave;d&egrave; Music &middot; Tous droits r&eacute;serv&eacute;s</p>
   </div>
-  <p class="footer-copy">© 2026 Vano Baby · Azéto Gbèdé Music · Tous droits réservés</p>
 </footer>
 
 <script>
-// ─── COUNTDOWN ───
-function updateCountdown(){
-  const target = new Date('2026-04-04T16:00:00').getTime();
-  const now = new Date().getTime();
-  const diff = target - now;
-  if(diff <= 0){
-    document.getElementById('cnt-j').textContent='00';
-    document.getElementById('cnt-h').textContent='00';
-    document.getElementById('cnt-m').textContent='00';
-    document.getElementById('cnt-s').textContent='00';
-    return;
-  }
-  const d = Math.floor(diff/(1000*60*60*24));
-  const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-  const m = Math.floor((diff%(1000*60*60))/(1000*60));
-  const s = Math.floor((diff%60000)/1000);
-  document.getElementById('cnt-j').textContent=String(d).padStart(2,'0');
-  document.getElementById('cnt-h').textContent=String(h).padStart(2,'0');
-  document.getElementById('cnt-m').textContent=String(m).padStart(2,'0');
-  document.getElementById('cnt-s').textContent=String(s).padStart(2,'0');
+function tick(){
+  var t=new Date('2026-04-04T16:00:00').getTime()-Date.now();
+  if(t<=0){['cj','ch','cm','cs'].forEach(function(id){document.getElementById(id).textContent='00';});return;}
+  function p(n){return String(n).padStart(2,'0');}
+  document.getElementById('cj').textContent=p(Math.floor(t/864e5));
+  document.getElementById('ch').textContent=p(Math.floor((t%864e5)/36e5));
+  document.getElementById('cm').textContent=p(Math.floor((t%36e5)/6e4));
+  document.getElementById('cs').textContent=p(Math.floor((t%6e4)/1e3));
 }
-updateCountdown();
-setInterval(updateCountdown,1000);
+tick();setInterval(tick,1000);
 
-// ─── TICKETS INTERACTIFS ───
-const ticketCards = document.querySelectorAll('.ticket-card');
-const orderLines = document.getElementById('order-lines');
-const orderTotal = document.getElementById('order-total');
-const reserveBtn = document.getElementById('reserve-btn');
-const reserveBtnText = document.getElementById('reserve-btn-text');
-const quantities = {};
-
-ticketCards.forEach(card => {
-  const cat = card.dataset.cat;
-  const price = parseInt(card.dataset.price);
-  const stock = parseInt(card.dataset.stock);
-  const sold = parseInt(card.dataset.sold);
-  const remaining = stock - sold;
-  quantities[cat] = 0;
-
-  const minusBtn = card.querySelector('.qty-btn.minus');
-  const plusBtn = card.querySelector('.qty-btn.plus');
-  const qtyDisplay = card.querySelector('.qty-num');
-  const gaugeRemaining = card.querySelector('.gauge-remaining');
-  const gaugeFill = card.querySelector('.gauge-fill');
-  const gaugePercent = remaining / stock;
-  gaugeFill.style.width = (gaugePercent * 100).toFixed(0) + '%';
-  if(gaugePercent < 0.35) gaugeFill.classList.add('low');
-  gaugeRemaining.textContent = remaining;
-
-  function updateQty(newQty){
-    const maxQ = Math.min(remaining, 10);
-    quantities[cat] = Math.max(0, Math.min(newQty, maxQ));
-    qtyDisplay.textContent = quantities[cat];
-    if(quantities[cat] > 0) card.classList.add('selected');
-    else card.classList.remove('selected');
-    renderOrder();
+var qtys={};
+document.querySelectorAll('.tkc').forEach(function(card){
+  var cat=card.dataset.cat,price=parseInt(card.dataset.price),rem=parseInt(card.dataset.rem);
+  qtys[cat]=0;
+  var minus=card.querySelector('.qb.minus'),plus=card.querySelector('.qb.plus'),valEl=card.querySelector('.qv');
+  function setQ(n){
+    qtys[cat]=Math.max(0,Math.min(n,Math.min(rem,10)));
+    valEl.textContent=qtys[cat];
+    card.classList.toggle('sel',qtys[cat]>0);
+    render();
   }
-
-  minusBtn.addEventListener('click', () => updateQty(quantities[cat]-1));
-  plusBtn.addEventListener('click', () => updateQty(quantities[cat]+1));
+  minus.addEventListener('click',function(){setQ(qtys[cat]-1);});
+  plus.addEventListener('click',function(){setQ(qtys[cat]+1);});
 });
 
-function formatPrice(n){
-  return n.toLocaleString('fr-FR') + ' FCFA';
-}
+function fmt(n){return n.toLocaleString('fr-FR')+' FCFA';}
 
-function renderOrder(){
-  let total = 0;
-  let hasItems = false;
-  const lines = [];
-
-  ticketCards.forEach(card => {
-    const cat = card.dataset.cat;
-    const price = parseInt(card.dataset.price);
-    const qty = quantities[cat];
-    if(qty > 0){
-      hasItems = true;
-      const sub = qty * price;
-      total += sub;
-      lines.push(`<div class="order-line"><span>${qty} × ${cat}</span><span>${formatPrice(sub)}</span></div>`);
-    }
+function render(){
+  var total=0,count=0,lines=[];
+  document.querySelectorAll('.tkc').forEach(function(card){
+    var cat=card.dataset.cat,price=parseInt(card.dataset.price),q=qtys[cat]||0;
+    if(q>0){total+=q*price;count+=q;lines.push('<div class="oline"><span>'+q+' &times; '+cat+'</span><span style="color:var(--wht);font-weight:500;">'+fmt(q*price)+'</span></div>');}
   });
-
-  if(!hasItems){
-    orderLines.innerHTML = '<p style="color:var(--text-muted);font-size:.85rem;font-style:italic;">Sélectionne des tickets ci-dessus pour voir ton panier.</p>';
-    orderTotal.textContent = '0 FCFA';
-    reserveBtn.disabled = true;
-    reserveBtnText.textContent = 'Sélectionne d\'abord des tickets';
-    return;
-  }
-
-  orderLines.innerHTML = lines.join('');
-  orderTotal.textContent = formatPrice(total);
-  reserveBtn.disabled = false;
-
-  // Build CTA label
-  let totalQty = Object.values(quantities).reduce((a,b)=>a+b,0);
-  // Find dominant ticket
-  let dominantCat = '';
-  let dominantQty = 0;
-  let dominantPrice = 0;
-  ticketCards.forEach(card => {
-    const cat = card.dataset.cat;
-    const price = parseInt(card.dataset.price);
-    const qty = quantities[cat];
-    if(qty > dominantQty){ dominantQty = qty; dominantCat = cat; dominantPrice = price; }
-  });
-
-  const multiCat = Object.values(quantities).filter(q=>q>0).length > 1;
-  if(multiCat){
-    reserveBtnText.textContent = `🎟️ Réserver ${totalQty} place${totalQty>1?'s':''} — ${formatPrice(total)}`;
-  } else {
-    reserveBtnText.textContent = `🎟️ Réserver ${dominantQty} place${dominantQty>1?'s':''} en ${dominantCat} — ${formatPrice(total)}`;
+  var olEl=document.getElementById('ol'),otnEl=document.getElementById('otn'),btn=document.getElementById('rbtn'),rtxt=document.getElementById('rtxt'),ricon=document.getElementById('ricon');
+  olEl.innerHTML=lines.length?lines.join(''):'<p class="oe">S\u00e9lectionne des tickets ci-dessus pour voir ton panier.</p>';
+  otnEl.textContent=fmt(total);
+  btn.disabled=count===0;
+  if(count===0){rtxt.textContent="S\u00e9lectionne d'abord tes tickets";ricon.className='fa-solid fa-ticket';}
+  else{
+    var mainCat='',mainQ=0;
+    document.querySelectorAll('.tkc').forEach(function(card){var q=qtys[card.dataset.cat]||0;if(q>mainQ){mainQ=q;mainCat=card.dataset.cat;}});
+    var multi=Object.values(qtys).filter(function(v){return v>0;}).length>1;
+    rtxt.textContent=multi?'R\u00e9server '+count+' place'+(count>1?'s':'')+' \u2014 '+fmt(total):'R\u00e9server '+mainQ+' place'+(mainQ>1?'s':'')+' en '+mainCat+' \u2014 '+fmt(total);
+    ricon.className='fa-solid fa-check';
   }
 }
 
-reserveBtn.addEventListener('click', () => {
-  if(reserveBtn.disabled) return;
-  alert('🎟️ Ta commande a été enregistrée !\n\nTu vas être redirigé vers le paiement sécurisé.\nMerci de rejoindre le Gang le 04 Avril 2026 !');
+document.getElementById('rbtn').addEventListener('click',function(){
+  if(document.getElementById('rbtn').disabled)return;
+  alert('Commande enregistr\u00e9e !\n\nTu vas \u00eatre redirig\u00e9 vers le paiement s\u00e9curis\u00e9.\nMerci de rejoindre le Gang le 04 Avril 2026 !');
 });
 
-// ─── FAQ ───
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.parentElement;
-    const answer = item.querySelector('.faq-answer');
-    const isOpen = item.classList.contains('open');
+document.querySelectorAll('.fq').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var item=btn.parentElement,answer=item.querySelector('.fan'),isOpen=item.classList.contains('op');
+    document.querySelectorAll('.fi.op').forEach(function(o){o.classList.remove('op');o.querySelector('.fan').style.maxHeight='0';});
+    if(!isOpen){item.classList.add('op');answer.style.maxHeight=answer.scrollHeight+'px';}
+  });
+});
 
-    document.querySelectorAll('.faq-item.open').forEach(openItem => {
-      openItem.classList.remove('open');
-      openItem.querySelector('.faq-answer').style.maxHeight = '0';
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
+document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+
+// ── CAROUSEL DISCOGRAPHIE — SLIDE ──
+(function(){
+  var track   = document.getElementById('discoTrack');
+  var slides  = document.querySelectorAll('.disco-slide');
+  var dots    = document.querySelectorAll('.disco-dot');
+  var current = 0;
+  var total   = slides.length;
+  var timer;
+
+  function showSlide(idx){
+    dots[current].classList.remove('active');
+    current = (idx + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots[current].classList.add('active');
+  }
+
+  // init
+  track.style.transform = 'translateX(0%)';
+  dots[0].classList.add('active');
+
+  function startTimer(){
+    clearInterval(timer);
+    timer = setInterval(function(){ showSlide(current + 1); }, 5000);
+  }
+
+  document.getElementById('discoNext').addEventListener('click', function(){ showSlide(current + 1); startTimer(); });
+  document.getElementById('discoPrev').addEventListener('click', function(){ showSlide(current - 1); startTimer(); });
+  dots.forEach(function(dot){
+    dot.addEventListener('click', function(){
+      var idx = parseInt(dot.dataset.idx);
+      if(idx !== current){ showSlide(idx); startTimer(); }
     });
-
-    if(!isOpen){
-      item.classList.add('open');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
   });
-});
 
-// ─── SCROLL ANIMATIONS ───
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting) e.target.classList.add('visible');
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  startTimer();
+})();
 </script>
 </body>
 </html>
